@@ -24,3 +24,71 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+
+
+.circleBase {
+    border-radius: 50%;
+  }
+  
+  .type1 {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    background: linear-gradient(90deg, #81137d 0%, #a240cc 100%);
+    box-shadow: 0px 1px 10px rgba(189,163,215,255);
+    top: -50px;
+    left: -50px;
+  }
+  
+  .type2 {
+    width: 100px;
+    height: 100px;
+    background: #fb9600;
+  }
+  
+  .circle1 {
+    margin-left: 180px;
+    margin-top: 50px;
+  }
+  
+  .circle2 {
+    position: absolute;
+    top: 150px;
+    left: -20px;
+  }
+  
+  .welcomeMessage {
+    color: black !important;
+    position: absolute;
+    margin-top: 40px;
+   padding: 20px;
+  }
+  .welcomeHeading{
+   
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    line-height: 29px;
+    font-size: 25px !important;
+  }
+  .welcomeMessageShort{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    color: black !important;
+
+  }
+  
+  .error {
+    font-size: 0.75rem;
+  }
+
+  .login-form{
+    margin-top: -20px !important;
+  }
+
+  .black-font{
+    color: black !important;
+  }

@@ -1,0 +1,26 @@
+// :host {
+//     margin: 0px;
+//     border-radius: 0px;
+//     box-shadow: rgb(0 0 0 / 12%) 0px 0px 0px;
+// }
+
+.cardName{
+font-style: italic;
+font-weight: 100;
+font-size: 16px;
+line-height: 20px;
+/* identical to box height */
+letter-spacing: -0.3px;
+/* Bold text */
+color: #141619 !important;
+margin-left: 5px;
+}
+
+.cardTime{
+    font-weight: 100;
+    font-size: 14px;
+    line-height: 20px;
+    color: #141619 !important;
+    margin-left: 5px;
+    margin-top: 25px;
+    }

@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Users</ion-title>
+    <div class="row">
+      <div class="col-md-12">
+        <p [routerLink]="['/dashboard']" class="text-right" ><img style="width: 7%; margin: 18px 5px 0px 0px;" src="../../../assets/Yellow.png" alt=""></p>
+      </div>
+    </div>
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-content *ngIf="showAllUsers">
+  <ion-list>
+    <ion-item *ngFor="let user of userList">
+      <ion-label (click)="showUserDetail(user.uid)"> 
+          <div class="row">
+            <div class="col-6">
+              <img style="width: 15% !important" src="../../../assets//Yellow.png" alt="">
+              {{user.name}}
+            </div>
+          <div style="fontSize: 14px; fontStyle: italic" class="col-6 text-right">
+            {{user.city}}
+          </div>
+          </div>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-content *ngIf="!showAllUsers">
+  <div class="row">
+    <div style="borderBottom: 1px solid black; marginBottom: 5px" class="col-md-12">
+      Name: {{userName}} <br>
+      Age: {{userAge}}, Gender: {{userGender}}<br>
+      Email: {{userEmail}} <br>
+      About: {{userAbout}} <br>
+      Mobile: {{userMobile}} <br>
+      {{userCity}}, {{userState }}
+    </div>
+    <div class="col-md-12">
+        <h5>Dream Journal</h5>
+    </div>
+  </div>
+  <ion-card *ngFor="let dream of dreamData">
+    <ion-card-header>
+      <ion-card-subtitle>{{dream.date}} -- {{dream.time}}</ion-card-subtitle>
+      <ion-card-title *ngIf="dream.good">Good Day</ion-card-title>
+      <ion-card-title *ngIf="!dream.good">Bad Day</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      {{dream.description}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>

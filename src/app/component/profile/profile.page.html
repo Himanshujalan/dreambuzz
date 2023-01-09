@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="row">
+    <div style="borderBottom: 1px solid black; marginBottom: 5px" class="col-md-12">
+      Name: {{userName}} <br>
+      Age: {{userAge}}, Gender: {{userGender}}<br>
+      Email: {{userEmail}} <br>
+      About: {{userAbout}} <br>
+      Mobile: {{userMobile}} <br>
+      {{userCity}}, {{userState }}
+    </div>
+    <div class="col-md-12">
+        <h5>Dream Journal</h5>
+    </div>
+  </div>
+  <ion-card *ngFor="let dream of dreamData">
+    <ion-card-header>
+      <ion-card-subtitle>{{dream.date}} -- {{dream.time}}</ion-card-subtitle>
+      <ion-card-title *ngIf="dream.good">Good Day</ion-card-title>
+      <ion-card-title *ngIf="!dream.good">Bad Day</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      {{dream.description}}
+    </ion-card-content>
+  </ion-card>
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

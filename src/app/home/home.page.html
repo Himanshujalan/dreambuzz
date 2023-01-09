@@ -1,20 +1,90 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-content [fullscreen]="true">
+ 
+    <!-- <div class="circleBase type2 circle1"></div>
+    <div class="circleBase type1"></div>
+    <div class="circleBase type2 circle2"></div> -->
+      <div class="row mt-4">
+        <div class="col-12 text-center">
+          <img src="../../assets/logo.png" alt="">
+        </div>
+      </div>
+    <ion-label class="welcomeMessage">
+      <ion-text >
+        <p class="welcomeHeading">Log In!</p>
+      </ion-text>
+      <p class="welcomeMessageShort">Enter you login details to access your account</p>
+    </ion-label> 
+  
+    <form [formGroup]="form">
+      <ion-list lines="none" class="ion-margin ion-text-center login-form">
+        <ion-item class="ion-margin-vertical">
+          <ion-icon 
+            name="mail-outline" slot="end" color="medium">
+          </ion-icon>
+          <ion-input 
+            formControlName="email" 
+            placeholder="Enter Email Address">
+          </ion-input>
+        </ion-item>
+        <ion-text 
+          class="ion-text-left"
+          color="danger"
+          *ngIf="!form.get('email').valid && form.get('email').touched">
+          <p style="marginTop: -15px" class="error">*Please enter proper Email Address</p>
+        </ion-text>
+  
+        <ion-item class="ion-margin-vertical">
+          <ion-icon (click)="onChange()"
+            [name]="isTypePassword ? 'lock-closed-outline' : 'lock-open-outline'" 
+            slot="end" 
+            [color]="isTypePassword ? 'medium' : 'primary'">
+          </ion-icon>
+          <ion-input 
+            formControlName="password" 
+            [type]="isTypePassword ? 'password' : 'text'"
+            placeholder="Enter Password">
+          </ion-input>
+        </ion-item>
+        <ion-text 
+          class="ion-text-left"
+          color="danger"
+          *ngIf="!form.get('password').valid && form.get('password').touched">
+          <p style="marginTop: -15px"
+            class="error" 
+            *ngIf="form.get('password').invalid && form.get('password').errors.required">
+            *Please enter your Password
+          </p>
+          <p style="marginTop: -15px" 
+            class="error" 
+            *ngIf="form.get('password').dirty">
+            *Password must be of atleast 8 characters
+          </p>
+        </ion-text>
+  
+        <ion-row class="ion-margin-vertical ">
+          <ion-col size="6" class="alignItems">
+            <div align=left>
+              <ion-checkbox></ion-checkbox>
+              <ion-note class="black-font">Remember me</ion-note>
+            </div>
+          </ion-col>
+          <ion-col size="6">
+            <div align=right>
+              <ion-note class="black-font">Forgot password?</ion-note>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-button color="primary" shape="round" (click)="onSubmit()">Log In</ion-button>
+        <p class="signup">
+          <ion-note class="black-font">
+            Not a member yet? <ion-text routerLink="/signup" color="primary">Sign Up</ion-text>
+          </ion-note>
+        </p>
+      </ion-list>
+    </form>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
 </ion-content>
+
+
+
